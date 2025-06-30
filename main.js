@@ -3,7 +3,7 @@ import express from 'express';
 
 console.log(chalk, express);
 
-
+ciao belli
 // Creare un file di routing (routers/posts.js) che conterrà 
 // le rotte necessario per l'entità post.
 
