@@ -3,25 +3,21 @@
   "version": "1.0.0",
   "description": "Boolean Exercise",
   "homepage": "https://github.com/coluccifrancesco/express-blog-routing#readme",
-  
   "bugs": {
     "url": "https://github.com/coluccifrancesco/express-blog-routing/issues"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coluccifrancesco/express-blog-routing.git"
   },
-  
   "license": "ISC",
   "author": "Francesco Colucci",
-  "type": "module",
-  "main": "main.js",
+  "type": "commonjs",
+  "main": "app.js",
   "scripts": {
-    "start": "node main.js",
-    "dev": "node --watch main.js"
+    "start": "node app.js",
+    "dev": "node --watch app.js"
   },
-
   "dependencies": {
     "chalk": "^5.4.1",
     "express": "^5.1.0"

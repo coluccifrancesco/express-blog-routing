@@ -1,8 +1,5 @@
-import chalk from 'chalk';
-import express from 'express';
-
-console.log(chalk, express);
-
+const express = reuqire('../package.json');
+const router = express.Router();
 
 // Creare un file di routing (routers/posts.js) che conterrà 
 // le rotte necessario per l'entità post.
@@ -17,7 +14,6 @@ console.log(chalk, express);
 // Se viene chiamato /posts/1 col verbo DELETE ci aspettiamo “Cancellazione del post 1”
 // e via dicendo…
 
-
 // Registrare il router dentro app.js con il prefisso posts/.
 
 
@@ -29,3 +25,5 @@ console.log(chalk, express);
 // Bonus
 // Provare a restituire la lista dei post dalla rotta index, in formato json
 // Provare a restituire un singolo post dalla rotta show, sempre in formato json
+
+module.exports = router;
