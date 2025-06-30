@@ -2,35 +2,48 @@
 // le rotte necessario per l'entità post.
 
 const express = require('express');
-const postsArr = require('../data/posts.js');
 const router = express.Router();
 
 // All'interno creare le rotte per le operazioni CRUD (Index, Show, Create, Update e Delete)
 // Tutte le risposte saranno dei testi che confermeranno l’operazione 
 // che il server deve eseguire, secondo le convenzioni REST.
 
-// get
+// get - index
 router.get(('/'), (req, res) => {
+
+    // Bonus:
+    // Restituire la lista dei post dalla rotta index in formato json
+    let postsArr = require('../data/posts');
+    const jsonConv = JSON.stringify(postsArr);
+    console.log(jsonConv);
     
-    res.send('Welcome to the Blog! This is our post list');
+    res.send(`Welcome to the Blog! This is our post list: ${jsonConv}`);
 
 })
 
+
+// get - show
 router.get(('/:id'), (req, res) => {
 
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     console.log(id);
 
+    // Bonus:
+    // Restituire un singolo post dalla rotta show in formato json
+    let postsArr = require('../data/posts');
+    let jsonConv = JSON.stringify(postsArr[id - 1]);
+    console.log(jsonConv);
+    
     if(id > 5){
-        res.send(`The post with slug "${id}" does not exist`)
+        res.send(`The post with slug "${id}" does not exist`);
     } else {
-        res.send(`You requested the post with slug: ${id}`)
+        res.send(`You requested the post with slug: ${id}. Your post: ${jsonConv}`);
     }
     
 })
 
 
-// post
+// post - store
 router.post(('/'), (req, res) => {
 
     const idGenerator = Math.floor(Math.random() * (999 - 5 + 1) + 5);
@@ -41,7 +54,7 @@ router.post(('/'), (req, res) => {
 })
 
 
-// put
+// put - update
 router.put(('/:id'), (req, res) => {
 
     const id = req.params.id;
@@ -50,13 +63,13 @@ router.put(('/:id'), (req, res) => {
     if(id > 5){
         res.send(`The post with slug "${id}" does not exist`)
     } else {
-        res.send(`You added data at the post with slug: ${id}`)
+        res.send(`You updated the post with slug: ${id}`)
     }
 
 })
 
 
-// patch
+// patch - modify
 router.patch(('/:id'), (req, res) => {
 
     const id = req.params.id;
@@ -71,7 +84,7 @@ router.patch(('/:id'), (req, res) => {
 })
 
 
-// delete
+// delete - destroy
 router.delete(('/:id'), (req, res) => {
 
     const id = req.params.id;
@@ -85,9 +98,5 @@ router.delete(('/:id'), (req, res) => {
 
 })
 
-
-// Bonus
-// Provare a restituire la lista dei post dalla rotta index, in formato json
-// Provare a restituire un singolo post dalla rotta show, sempre in formato json
 
 module.exports = router;
