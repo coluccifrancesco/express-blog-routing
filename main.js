@@ -1,6 +1,11 @@
+import chalk from 'chalk';
+import express from 'express';
+
+console.log(chalk, express);
+
+
 // Creare un file di routing (routers/posts.js) che conterrà 
 // le rotte necessario per l'entità post.
-
 
 // All'interno creare le rotte per le operazioni CRUD (Index, Show, Create, Update e Delete)
 
