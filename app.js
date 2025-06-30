@@ -5,11 +5,13 @@ const postsArr = require('./data/posts.js');
 const app = express();
 const port = 3000;
 
+const postRouter = require('./routers/posts.js')
+
 console.log(postsArr);
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Express Blog!');
-})
+
+// Registrare il router dentro app.js con il prefisso posts/.
+app.use("/posts", postRouter)
 
 
 app.listen(port, () => {
