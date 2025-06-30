@@ -25,7 +25,7 @@ router.get(('/'), (req, res) => {
 // get - show
 router.get(('/:id'), (req, res) => {
 
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     console.log(id);
 
     // Bonus:
