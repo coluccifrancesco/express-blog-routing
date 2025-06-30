@@ -5,13 +5,12 @@ const postsArr = require('./data/posts.js');
 const app = express();
 const port = 3000;
 
-const postRouter = require(router);
-
-console.log(chalk, express, postsArr, app, port);
+console.log(postsArr);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Express Blog!');
 })
+
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
